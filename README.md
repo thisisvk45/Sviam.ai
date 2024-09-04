@@ -1,108 +1,128 @@
-# Sviam.ai
 
+# SViam.ai: Virtual Avatar Clone System
 
+SViam.ai is a prototype for creating a virtual avatar clone that can lip-sync to a given script with customizable features such as clothing, appearance, and voice tone. The focus is on rendering the upper body of the avatar in a professional setting.
 
-# Virtual Clone System Prototype
+## Features
 
-## Project Overview
+- **Lip-Syncing**: The avatar accurately lip-syncs to the provided audio input.
+- **Customizable Avatar**: Adjust the avatar’s clothing, appearance, and voice tone based on user input.
+- **Camera Settings**: Modify camera angles, lighting, and background for professional output.
+- **Steady Motion**: No full-body movements, only focused on upper-body animation.
 
-This project is a prototype for a virtual clone system capable of creating personalized avatars that can lip-sync to any given script. The avatars are customizable in terms of appearance, clothing, and voice tone, and the user has control over camera settings such as angles, lighting, and backgrounds.
+## Setup and Dependencies
 
----
+### Requirements
 
-## Setup Instructions
+- **Python 3.x**
+- **Google Colab or Local Python Environment** (with GPU recommended)
+- **Libraries and Frameworks**:
+  - TensorFlow or PyTorch (for lip-syncing and avatar models)
+  - OpenCV for image processing and camera settings
+  - Blender (optional, for 3D rendering)
+  - ffmpeg for processing audio and video
+  - Wav2Lip or similar models for lip-syncing
+  - GAN models (e.g., StyleGAN) for avatar generation (optional)
+  - TTS tools (e.g., Google Text-to-Speech, Tacotron2) for voice synthesis
 
-### 1. Prerequisites
+### Installation
 
-- **Operating System**: Windows, macOS, or Linux
-- **Python 3.x**: Install from [python.org](https://www.python.org/)
-- **Node.js and NPM**: For handling the UI (if using web technologies)
+You can run SViam.ai directly in Google Colab or set it up locally.
 
-### 2. Clone the Repository
+#### 1. **Google Colab Setup**
 
-```bash
-git clone https://github.com/your-repo/virtual-clone-system.git
-cd virtual-clone-system
+- Clone the repository in Colab:
+  ```bash
+  !git clone https://github.com/thisisvk45/SViam.ai
+  ```
+
+- Install dependencies:
+  ```bash
+  !pip install -r requirements.txt
+  ```
+
+#### 2. **Local Setup**
+
+- Clone the repository:
+  ```bash
+  git clone https://github.com/thisisvk45/SViam.ai
+  cd SViam.ai
+  ```
+
+- Install dependencies using pip:
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+- Ensure that you have a compatible GPU for rendering and lip-syncing tasks.
+
+## Usage
+
+### Inputs
+
+- **Photo**: Upload a front-facing image of the person you want to create the avatar for. This image will be used for generating the face of the avatar.
+- **Voice**: Upload an audio file or use the text-to-speech functionality to generate the voice.
+
+### Running the Lip-Syncing Model
+
+In the Colab notebook (or local environment), run the lip-syncing script:
+
+```python
+from lip_sync_module import sync_lips
+sync_lips(photo='input/photo.jpg', audio='input/audio.wav')
 ```
 
-### 3. Install Dependencies
+### Avatar Customization
 
-- **Python Libraries**:
-    ```bash
-    pip install -r requirements.txt
-    ```
+- **Clothing and Appearance**: You can modify the avatar’s clothing and facial features using the `avatar_customization` module.
 
-- **Node.js Libraries** (if using a web-based interface):
-    ```bash
-    npm install
-    ```
+```python
+from avatar_customization import customize_avatar
+customize_avatar(photo='input/photo.jpg', outfit='casual', hair='short', tone='neutral')
+```
 
-#### Dependencies:
-- **Wav2Lip** (for lip-syncing)
-- **Blender** or **Ready Player Me API** (for avatar customization)
-- **DeepFaceLab** or **D-ID** (for facial mapping)
-- **Text-to-Speech (Google TTS or Amazon Polly)** for voice generation
-- **Unity or Three.js** (for camera control and rendering)
+- **Voice Tone**: You can change the tone of the voice using the `tts_customization` function.
 
-### 4. Set Up External APIs
+```python
+from voice_customization import change_tone
+change_tone(audio='input/audio.wav', tone='deep')
+```
 
-If you are using Google Text-to-Speech or Amazon Polly, you will need to set up the relevant API keys. Refer to the following guides for setup:
+### Adjusting Camera Settings
 
-- [Google Cloud TTS Setup](https://cloud.google.com/text-to-speech/docs/quickstart-client-libraries)
-- [Amazon Polly Setup](https://docs.aws.amazon.com/polly/index.html)
+Modify camera angles and lighting using the `camera_settings` module:
 
----
+```python
+from camera_settings import set_camera
+set_camera(angle='front', lighting='soft', background='professional')
+```
 
-## Usage Instructions
+### Outputs
 
-### Step 1: Input Data
+The prototype will generate a video file of the avatar delivering the script. You can download the final output from Colab or your local environment.
 
-- **Photos**: Upload a front-facing photo. This photo will be used to create the avatar.
-- **Voice Recording**: Upload a voice recording (optional) or provide a text script for automatic speech generation using the built-in TTS engine.
+## Customization Options
 
-### Step 2: Customize Avatar
+You can control the following customization options for your avatar:
 
-- **Appearance**: Adjust facial features, hair, skin tone, and clothing options using the customization panel.
-- **Voice Tone**: Use the tone control slider to modify the pitch and depth of the avatar's voice.
+- **Clothing**: Select different outfits such as `casual`, `formal`, or `creative`.
+- **Appearance**: Adjust hair length, skin tone, and facial features.
+- **Voice Tone**: Adjust the voice tone to `high-pitch`, `neutral`, or `deep`.
+- **Camera Settings**: Modify the angle (e.g., front, side) and lighting (soft, dramatic, etc.).
 
-### Step 3: Camera Settings
+## Future Features
 
-- Select from preset camera angles (front, side, close-up).
-- Adjust lighting and background options for a professional look.
-
-### Step 4: Generate Video
-
-Once all settings are configured, press the "Generate" button to create the final video. The system will process the input and generate a lip-synced video of the avatar speaking the script.
-
-### Step 5: Output
-
-The final output will be a video file (.mp4) with the virtual avatar lip-syncing the provided script. The video will feature customizable camera angles, lighting, and background settings.
+- **Emotion Detection**: Add facial expressions based on the script's emotional tone.
+- **Real-time Processing**: Move toward real-time avatar lip-syncing.
+- **Background Removal**: Implement automatic background removal or dynamic background changes.
 
 ---
 
-## Customization
+## Example Workflow
 
-### Avatar Customization Options
+1. Upload your photo and voice input files.
+2. Customize the avatar’s appearance, clothing, and voice tone.
+3. Adjust camera settings for a professional look.
+4. Generate the video and download the final output.
 
-- **Face and Body**: Customize the face (skin tone, hair, eye color) and clothing.
-- **Voice**: Change the voice tone by adjusting pitch.
 
-### Camera Customization Options
-
-- **Camera Angles**: Select from preset options (front, side, or close-up).
-- **Background**: Choose from a selection of virtual backgrounds or upload a custom image.
-- **Lighting**: Adjust brightness, contrast, and shadows to achieve a professional video look.
-
----
-
-## Troubleshooting
-
-- **Lip-Syncing Issues**: Ensure that the audio file is clear and the face in the photo is well-lit and front-facing.
-- **Voice Generation Errors**: Check that the TTS API is set up correctly with valid credentials.
-- **Rendering Issues**: If using Blender or Unity, make sure the rendering environment is properly set up and dependencies are installed.
-
----
-
-## Future Work
-
-In future versions, we plan to introduce more advanced body movements, expressions, and full-body avatar options.
