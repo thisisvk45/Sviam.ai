@@ -2,31 +2,6 @@
 
 
 
-## Project Overview
-
-This project is a prototype for a virtual clone system capable of creating personalized avatars that can lip-sync to any given script. The avatars are customizable in terms of appearance, clothing, and voice tone, and the user has control over camera settings such as angles, lighting, and backgrounds.
-
----
-
-## Setup Instructions
-
-### 1. Prerequisites
-
-- **Operating System**: Windows, macOS, or Linux
-- **Python 3.x**: Install from [python.org](https://www.python.org/)
-- **Node.js and NPM**: For handling the UI (if using web technologies)
-
-### 2. Clone the Repository
-
-```bash
-git clone https://github.com/your-repo/virtual-clone-system.git
-cd virtual-clone-system
-
-pip install -r requirements.txt
-npm install
-Here is the code for the README file in markdown format, which you can copy and save as a `README.md` file in your project directory.
-
-```markdown
 # Virtual Clone System Prototype
 
 ## Project Overview
@@ -131,10 +106,3 @@ The final output will be a video file (.mp4) with the virtual avatar lip-syncing
 ## Future Work
 
 In future versions, we plan to introduce more advanced body movements, expressions, and full-body avatar options.
-
----
-
-This README provides instructions for setting up and using the prototype for creating virtual clones. The focus is on simplicity, with an emphasis on customization and realistic results.
-```
-
-You can save this content as `README.md` in the root directory of your project repository.
