@@ -9,7 +9,6 @@ def customize_avatar(photo, outfit='formal', hair='short'):
     print(f'Customizing avatar based on {photo}.')
     print(f'Outfit: {outfit}, Hair: {hair}')
     
-    # Placeholder logic for avatar customization
-    # You would integrate avatar generation models or 3D rendering here.
+    # would update this soon ( logical section)
     
     return f'Customized avatar with {outfit} outfit and {hair} hair.'
